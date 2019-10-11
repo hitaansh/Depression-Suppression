@@ -9,10 +9,140 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Welcome to Depression Supression!"
+        android:textAlignment="center"
+        android:textColor = "@color/happyorange"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:id="@+id/title"
+        android:fontFamily="sans-serif"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Questions for Today:"
+        android:fontFamily="sans-serif"
+        android:textSize="20sp"
+        android:textAlignment="viewStart"
+        android:layout_marginTop="20dp"
+        android:id="@+id/prompt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question1"
+        android:text="placeholder"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/prompt"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Provide a number 0-10"
+        android:textColorHint="@color/red"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="5dp"
+        android:id="@+id/answer1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question2"
+        android:text="placeholder"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/answer1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Provide a number 0-10"
+        android:textColorHint="@color/red"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="5dp"
+        android:id="@+id/answer2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question3"
+        android:text="placeholder"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/answer2"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Provide a number 0-10"
+        android:textColorHint="@color/red"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="5dp"
+        android:id="@+id/answer3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question3"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question4"
+        android:text="placeholder"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/answer3"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Provide a number 0-10"
+        android:textColorHint="@color/red"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="5dp"
+        android:id="@+id/answer4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question4"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question5"
+        android:text="placeholder"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/answer4"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Provide a number 0-10"
+        android:textColorHint="@color/red"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="5dp"
+        android:id="@+id/answer5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question5"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question6"
+        android:text="placeholder"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/answer5"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Provide a number 0-10"
+        android:textColorHint="@color/red"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="5dp"
+        android:id="@+id/answer6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question6"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
