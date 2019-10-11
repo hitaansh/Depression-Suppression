@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Depression Supression!"
+        android:text="@string/main_title"
         android:textAlignment="center"
         android:textColor = "@color/happyorange"
         android:textSize="24sp"
