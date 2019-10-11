@@ -4,9 +4,175 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="15dp"
     tools:context=".InitialQuestions">
 
+    <TextView
+        android:id="@+id/nameQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_q"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/nameQ"
+        app:layout_constraintTop_toTopOf="parent">
+    </EditText>
+
+    <TextView
+        android:id="@+id/ageQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/age_q"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameQ">
+    </TextView>
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/ageQ"
+        app:layout_constraintTop_toBottomOf="@id/nameQ">
+    </EditText>
+
+    <TextView
+        android:id="@+id/genderQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gender_q"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ageQ">
+    </TextView>
+
+    <EditText
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/genderQ"
+        app:layout_constraintTop_toBottomOf="@id/ageQ">
+    </EditText>
+
+    <TextView
+        android:id="@+id/emgd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/emg_des"
+        android:textSize="10pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/genderQ">
+    </TextView>
 
 
+    <EditText
+        android:id="@+id/emgC1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/emg1_q"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emgd">
+    </EditText>
+
+    <EditText
+        android:id="@+id/emgC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/emg2_q"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emgC1">
+    </EditText>
+
+    <EditText
+        android:id="@+id/emgC3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/emg3_q"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emgC2">
+    </EditText>
+
+    <TextView
+        android:id="@+id/actd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/act_des"
+        android:textSize="10pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emgC3">
+    </TextView>
+
+    <EditText
+        android:id="@+id/act1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/act_1d"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actd">
+    </EditText>
+
+    <EditText
+        android:id="@+id/act2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/act_2d"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/act1">
+    </EditText>
+
+    <EditText
+        android:id="@+id/act3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/act_3d"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/act2">
+    </EditText>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

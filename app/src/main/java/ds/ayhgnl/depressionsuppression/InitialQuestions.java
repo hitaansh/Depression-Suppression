@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.content.SharedPreferences;
+import android.content.Intent;
 
 public class InitialQuestions extends AppCompatActivity {
     SharedPreferences pref;
@@ -11,5 +12,6 @@ public class InitialQuestions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_questions);
+
     }
 }
