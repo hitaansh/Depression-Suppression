@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.content.SharedPreferences;
 
 public class InitialQuestions extends AppCompatActivity {
-    Sharedpreferences pref;
+    SharedPreferences pref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
