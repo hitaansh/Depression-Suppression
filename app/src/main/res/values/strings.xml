@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Depression Suppression</string>
+    <string name="name">Name: </string>
+
 </resources>
