@@ -11,7 +11,7 @@
     <string name="act_1d">Activity 1: </string>
     <string name="act_2d">Activity 2: </string>
     <string name="act_3d">Activity 3: </string>
-    <resource><string name="main_title"><u>Welcome to Depression Supression!</u></string></resource>
+    <string name="main_title"><u>Welcome to Depression Supression!</u></string>
 
 
 

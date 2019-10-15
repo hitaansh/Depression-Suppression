@@ -12,11 +12,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Intent intent = new Intent(getApplicationContext(),InitialQuestions.class);
-        startActivity(intent);
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
-        String intialQuestionsKey = "com.answer.storage.init";
+        if(pref.getBoolean("InitialQuestionsCompleted", false)) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            Intent intent = new Intent(getApplicationContext(), InitialQuestions.class);
+            startActivity(intent);
+        }
+
+
     }
 }

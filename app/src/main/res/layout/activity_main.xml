@@ -147,7 +147,7 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:src="@drawable/DSLogo"
+        android:src="@drawable/dslogo"
         app:layout_constraintTop_toBottomOf="@id/answer6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
