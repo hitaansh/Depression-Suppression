@@ -12,13 +12,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
-        if(pref.getBoolean("InitialQuestionsCompleted", false)) {
+        boolean clicked = pref.getBoolean("InitialQuestionsCompleted", false);
+        if(clicked) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
-            Intent intent = new Intent(getApplicationContext(), InitialQuestions.class);
-            startActivity(intent);
         }
+        else {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_initial_questions);
+        }
+
 
 
     }
