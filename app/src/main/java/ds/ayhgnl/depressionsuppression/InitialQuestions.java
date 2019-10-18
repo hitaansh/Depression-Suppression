@@ -40,9 +40,19 @@ public class InitialQuestions extends AppCompatActivity {
                         ||age.getText().toString().equals("")||name.getText().toString().equals("")
                         ||gender.getText().toString().equals(""))){
                     clicked = true;
-                    System.out.println("we r here");
                     SharedPreferences.Editor preferencesEditor = pref.edit();
                     preferencesEditor.putBoolean("InitialQuestionsCompleted", clicked );
+                    preferencesEditor.putString("Name", name.getText().toString());
+                    preferencesEditor.putString("Age", age.getText().toString());
+                    preferencesEditor.putString("Gender", gender.getText().toString());
+                    preferencesEditor.putString("Contact1", contact1.getText().toString());
+                    if(!contact2.getText().toString().equals(""))
+                        preferencesEditor.putString("Contact2", contact2.getText().toString());
+                    if(!contact3.getText().toString().equals(""))
+                        preferencesEditor.putString("Contact3", contact3.getText().toString());
+                    preferencesEditor.putString("Act1", activity1.getText().toString());
+                    preferencesEditor.putString("Act2", activity2.getText().toString());
+                    preferencesEditor.putString("Act3", activity3.getText().toString());
                     preferencesEditor.apply();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
