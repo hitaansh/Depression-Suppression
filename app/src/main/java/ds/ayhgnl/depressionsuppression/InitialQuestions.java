@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class InitialQuestions extends AppCompatActivity {
     boolean clicked = false;
@@ -33,12 +34,24 @@ public class InitialQuestions extends AppCompatActivity {
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clicked = true;
-                SharedPreferences.Editor preferencesEditor = pref.edit();
-                preferencesEditor.putBoolean("InitialQuestionsCompleted", clicked );
-                preferencesEditor.apply();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                if(!(contact1.getText().toString().equals("")||activity1.getText().toString().equals("")
+                        ||activity2.getText().toString().equals("")||activity3.getText().toString().equals("")
+                        ||age.getText().toString().equals("")||name.getText().toString().equals("")
+                        ||gender.getText().toString().equals(""))){
+                    clicked = true;
+                    SharedPreferences.Editor preferencesEditor = pref.edit();
+                    preferencesEditor.putBoolean("InitialQuestionsCompleted", clicked );
+                    preferencesEditor.apply();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Please Fill in All Required Fields";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             }
         });
 
