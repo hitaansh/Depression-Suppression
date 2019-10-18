@@ -18,6 +18,7 @@ public class InitialQuestions extends AppCompatActivity {
     EditText contact1, contact2, contact3, name, age , gender, activity1, activity2, activity3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("on create iq");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_questions);
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
@@ -39,6 +40,7 @@ public class InitialQuestions extends AppCompatActivity {
                         ||age.getText().toString().equals("")||name.getText().toString().equals("")
                         ||gender.getText().toString().equals(""))){
                     clicked = true;
+                    System.out.println("we r here");
                     SharedPreferences.Editor preferencesEditor = pref.edit();
                     preferencesEditor.putBoolean("InitialQuestionsCompleted", clicked );
                     preferencesEditor.apply();
