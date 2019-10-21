@@ -1,0 +1,39 @@
+https://cesd-r.com/
+#Number of questions
+#options, values are 0, 1, 2, 3, 3 respectively
+Not at all or less than 1 day last week.
+One or two days last week.
+Three to four days last week.
+Five to seven days last week.
+Nearly every day for two weeks.
+#questions
+My appetite was poor.
+I could not shake off the blues.
+I had trouble keeping my mind on what I was doing.
+I felt depressed.
+My sleep was restless.
+I felt sad.
+I could not get going.
+Nothing made me happy.
+I felt like a bad person.
+I lost interest in my usual activities.
+I slept much more than usual.
+I felt like I was moving too slowly.
+I felt fidgety.
+I wished I were dead.
+I wanted to hurt yourself.
+I was tired all the time.
+I did not like myself.
+I lost a lot of weight without trying to.
+I had a lot of trouble getting to sleep.
+I could not focus on the important things.
+#symptom groups
+2 4 6 Sadness (Dysphoria)
+8 10 Loss of interest (Anhedonia)
+1 18 Appetite
+5 11 19 Sleep
+3 20 Thinking/concentration
+9 17 Guilt (Worthlessness)
+7 16 Tired (fatigue)
+12 13 Movement
+14 15 Suicidal ideation
