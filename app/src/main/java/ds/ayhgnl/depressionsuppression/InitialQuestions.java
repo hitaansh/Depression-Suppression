@@ -21,7 +21,7 @@ public class InitialQuestions extends AppCompatActivity {
         System.out.println("on create iq");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_questions);
-        pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
+        pref = getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
         sub = findViewById(R.id.submit);
         contact1 = findViewById(R.id.emgC1);
         contact2 = findViewById(R.id.emgC2);
