@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     tools:context=".InitialQuestions">
-
     <TextView
         android:id="@+id/nameQ"
         android:layout_width="wrap_content"
@@ -14,21 +13,24 @@
         android:text="@string/name_q"
         android:textSize="15pt"
         android:textStyle="bold"
+        android:layout_marginLeft="10dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="">
     </TextView>
 
     <EditText
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="First Name"
         app:layout_constraintLeft_toRightOf="@id/nameQ"
         app:layout_constraintTop_toTopOf="parent">
     </EditText>
 
     <TextView
+        android:layout_marginLeft="10dp"
         android:id="@+id/ageQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,11 +47,13 @@
         android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="Enter Here"
         app:layout_constraintLeft_toRightOf="@id/ageQ"
         app:layout_constraintTop_toBottomOf="@id/nameQ">
     </EditText>
 
     <TextView
+        android:layout_marginLeft="10dp"
         android:id="@+id/genderQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,11 +70,13 @@
         android:id="@+id/gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint = "Enter Here"
         app:layout_constraintLeft_toRightOf="@id/genderQ"
         app:layout_constraintTop_toBottomOf="@id/ageQ">
     </EditText>
 
     <TextView
+        android:layout_marginLeft="10dp"
         android:id="@+id/emgd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,6 +91,7 @@
 
 
     <EditText
+        android:layout_marginLeft="10dp"
         android:id="@+id/emgC1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,6 +105,7 @@
     </EditText>
 
     <EditText
+        android:layout_marginLeft="10dp"
         android:id="@+id/emgC2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,6 +119,7 @@
     </EditText>
 
     <EditText
+        android:layout_marginLeft="10dp"
         android:id="@+id/emgC3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -124,6 +133,7 @@
     </EditText>
 
     <TextView
+        android:layout_marginLeft="10dp"
         android:id="@+id/actd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,6 +147,7 @@
     </TextView>
 
     <EditText
+        android:layout_marginLeft="10dp"
         android:id="@+id/act1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -150,6 +161,7 @@
     </EditText>
 
     <EditText
+        android:layout_marginLeft="10dp"
         android:id="@+id/act2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -163,6 +175,7 @@
     </EditText>
 
     <EditText
+        android:layout_marginLeft="10dp"
         android:id="@+id/act3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
