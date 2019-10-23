@@ -35,7 +35,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif"
-        android:text="Question: 1"
+        android:text="Question: "
         android:textAlignment="viewStart"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
@@ -59,6 +59,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft = "16dp"
         android:textSize="15sp"
+        android:onClick = "checked"
         app:layout_constraintTop_toBottomOf="@id/question"
         android:text = "Not at all or less than 1 day last week." />
     <CheckBox
@@ -68,6 +69,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft = "16dp"
         android:textSize="15sp"
+        android:onClick = "checked"
         app:layout_constraintTop_toBottomOf="@id/option1"
         android:text = "One or two days last week." />
     <CheckBox
@@ -77,6 +79,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft = "16dp"
         android:textSize="15sp"
+        android:onClick="checked"
         app:layout_constraintTop_toBottomOf="@id/option2"
         android:text = "Three to four days last week." />
     <CheckBox
@@ -86,6 +89,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft = "16dp"
         android:textSize="15sp"
+        android:onClick="checked"
         app:layout_constraintTop_toBottomOf="@id/option3"
         android:text = "Five to seven days last week." />
     <CheckBox
@@ -95,6 +99,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft = "16dp"
         android:textSize="15sp"
+        android:onClick="checked"
         app:layout_constraintTop_toBottomOf="@id/option4"
         android:text = "Nearly every day for two weeks." />
 
