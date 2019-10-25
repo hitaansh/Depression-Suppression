@@ -66,13 +66,16 @@ public class MainActivity extends AppCompatActivity {
                             score+=3;
                         }
                         else{
-                            score+=(i+1);
+                            score+=i;
                         }
                     }
                     check.setChecked(false);
                 }
                 question.setText(questions[questionnum]);
                 questionnum++;
+                if(questionnum==20){
+                    questionnum=0;
+                }
             }
         });
 
