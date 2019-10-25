@@ -10,7 +10,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.app.AlarmManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -55,26 +57,36 @@ public class MainActivity extends AppCompatActivity {
         clicked = pref.getBoolean("InitialQuestionsCompleted", false);
         System.out.println(clicked + "clicked");
         next.setEnabled(false);
-
+//        Intent inte = new Intent(MainActivity.this, Receiver.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, REQUEST_CODE, inte, 0);
+//        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+//        am.setRepeating(am.RTC_WAKEUP, System.currentTimeInMillis(), am.INTERVAL_DAY*7, pendingIntent);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(int i=0; i<options.length; i++){
-                    CheckBox check = (CheckBox)options[i];
-                    if(check.isChecked()){
-                        if(i==4){
-                            score+=3;
+                if(((CheckBox)options[0]).isChecked()||((CheckBox)options[1]).isChecked()
+                        ||((CheckBox)options[2]).isChecked()||((CheckBox)options[3]).isChecked()
+                        ||((CheckBox)options[4]).isChecked()){
+                    if(questionnum != 20){
+                        for(int i=0; i<options.length; i++){
+                            CheckBox check = (CheckBox)options[i];
+                            if(check.isChecked()){
+                                if(i==4){
+                                    score+=3;
+                                }
+                                else{
+                                    score+=i;
+                                }
+                            }
+                            check.setChecked(false);
                         }
-                        else{
-                            score+=i;
-                        }
+                        question.setText(questions[questionnum]);
+                        questionnum++;
                     }
-                    check.setChecked(false);
-                }
-                question.setText(questions[questionnum]);
-                questionnum++;
-                if(questionnum==20){
-                    questionnum=0;
+                    else {
+                        System.out.println("Change Screens");
+                        //transfer screens
+                    }
                 }
             }
         });
