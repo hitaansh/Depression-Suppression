@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         questionnum=1;
         clicked = pref.getBoolean("InitialQuestionsCompleted", false);
         System.out.println(clicked + "clicked");
-
+        next.setEnabled(false);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void checked(View view){
+        next.setEnabled(true);
         CheckBox checkBox = (CheckBox)view;
         for(int i=0; i<options.length; i++){
             CheckBox c = (CheckBox)options[i];

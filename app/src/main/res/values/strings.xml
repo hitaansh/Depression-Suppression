@@ -4,9 +4,9 @@
     <string name="gender_q">Gender: </string>
     <string name="age_q">Age: </string>
     <string name="emg_des">Enter at least 1 Emergency Contact </string>
-    <string name="emg1_q">Emergency Contact 1: </string>
-    <string name="emg2_q">Emergency Contact 2: </string>
-    <string name="emg3_q">Emergency Contact 3: </string>
+    <string name="emg1_q">Phone Number 1: </string>
+    <string name="emg2_q">Phone Number 2: </string>
+    <string name="emg3_q">Phone Number 3: </string>
     <string name="act_des">Enter 3 activities you enjoy </string>
     <string name="act_1d">Activity 1: </string>
     <string name="act_2d">Activity 2: </string>
