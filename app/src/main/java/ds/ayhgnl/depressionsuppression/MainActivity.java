@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     SharedPreferences pref; // = getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
     CheckBox option1; CheckBox option2; CheckBox option3; CheckBox option4; CheckBox option5; TextView question; Button next; int questionnum=0;
+    int sadness=0; int lossOfInterest = 0; int appetite=0; int sleep = 0; int concentration = 0; int worthlessness = 0; int fatigue=0; int movement = 0; int suicidalIdeation=0;
     boolean clicked; int score = 0; Object[] options; String[] questions = {"My appetite was poor.","I could not shake off the blues.","I had trouble keeping my mind on what I was doing."
     ,"I felt depressed."
     ,"My sleep was restless."
@@ -73,9 +74,45 @@ public class MainActivity extends AppCompatActivity {
                             if(check.isChecked()){
                                 if(i==4){
                                     score+=3;
+                                    if(questionnum==2 || questionnum==4 || questionnum==6)
+                                        sadness+=3;
+                                    if(questionnum==8 || questionnum==10)
+                                        lossOfInterest+=3;
+                                    if(questionnum==1 || questionnum==18)
+                                        appetite+=3;
+                                    if(questionnum==5 || questionnum==11 || questionnum==19)
+                                        sleep+=3;
+                                    if(questionnum==3 || questionnum==20)
+                                        concentration+=3;
+                                    if(questionnum==9 || questionnum==17)
+                                        worthlessness+=3;
+                                    if(questionnum==7 || questionnum==16)
+                                        fatigue+=3;
+                                    if(questionnum==12 || questionnum==13)
+                                        movement+=3;
+                                    if(questionnum==14 || questionnum==15)
+                                        suicidalIdeation+=3;
                                 }
                                 else{
                                     score+=i;
+                                    if(questionnum==2 || questionnum==4 || questionnum==6)
+                                        sadness+=i;
+                                    if(questionnum==8 || questionnum==10)
+                                        lossOfInterest+=i;
+                                    if(questionnum==1 || questionnum==18)
+                                        appetite+=i;
+                                    if(questionnum==5 || questionnum==11 || questionnum==19)
+                                        sleep+=i;
+                                    if(questionnum==3 || questionnum==20)
+                                        concentration+=i;
+                                    if(questionnum==9 || questionnum==17)
+                                        worthlessness+=i;
+                                    if(questionnum==7 || questionnum==16)
+                                        fatigue+=i;
+                                    if(questionnum==12 || questionnum==13)
+                                        movement+=i;
+                                    if(questionnum==14 || questionnum==15)
+                                        suicidalIdeation+=i;
                                 }
                             }
                             check.setChecked(false);
