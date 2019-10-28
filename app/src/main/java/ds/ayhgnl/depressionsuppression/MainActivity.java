@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
                     else {
                         System.out.println("Change Screens");
                         //transfer screens
+                        //if sadness  or sleep are 8 or greater, it is concerning
+                        //for everything else, if it is 5 or greater, it is concerning
                     }
                 }
             }
