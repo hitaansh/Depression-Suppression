@@ -121,7 +121,21 @@ public class MainActivity extends AppCompatActivity {
                         questionnum++;
                     }
                     else {
-                        System.out.println("Change Screens");
+                        pref = getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = pref.edit();
+                        edit.putInt("Score", score);
+                        edit.putInt("LossOfInterest", lossOfInterest);
+                        edit.putInt("Appetite", appetite);
+                        edit.putInt("Sleep", sleep);
+                        edit.putInt("Concentration", concentration);
+                        edit.putInt("Worthlessness", worthlessness);
+                        edit.putInt("Fatigue", fatigue);
+                        edit.putInt("Movement", movement);
+                        edit.putInt("SuicidalIntention", suicidalIdeation);
+                        edit.apply();
+                        Intent res = new Intent(getApplicationContext(), Analysis.class);
+                        startActivity(res);
+                        //System.out.println("Change Screens");
                         //transfer screens
                     }
                 }
@@ -159,10 +173,19 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     protected void onPause() {
-        System.out.println("here");
         super.onPause();
+        pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
         SharedPreferences.Editor pfEditor = pref.edit();
         pfEditor.putBoolean("InitialQuestionsCompleted", clicked);
+        pfEditor.putInt("Score", score);
+        pfEditor.putInt("LossOfInterest", lossOfInterest);
+        pfEditor.putInt("Appetite", appetite);
+        pfEditor.putInt("Sleep", sleep);
+        pfEditor.putInt("Concentration", concentration);
+        pfEditor.putInt("Worthlessness", worthlessness);
+        pfEditor.putInt("Fatigue", fatigue);
+        pfEditor.putInt("Movement", movement);
+        pfEditor.putInt("SuicidalIntention", suicidalIdeation);
         pfEditor.apply();
     }
 }

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultAnalysis">
+
+    <TextView
+        android:id="@+id/resultHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Results"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/scoreHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total score: "
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/resultHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/scoreBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/scoreHeader"
+        app:layout_constraintTop_toBottomOf="@id/resultHeader">
+    </TextView>
+
+    <TextView
+        android:id="@+id/lossOfInterestHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Loss of Interest: "
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/scoreHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/interestBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@id/lossOfInterestHeader"
+        app:layout_constraintTop_toBottomOf="@id/scoreHeader">
+    </TextView>
+
+    <TextView
+        android:id="@+id/appetiteHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Appetite: "
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/lossOfInterestHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/appetiteBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@id/appetiteHeader"
+        app:layout_constraintTop_toBottomOf="@id/lossOfInterestHeader">
+    </TextView>
+
+    <TextView
+        android:id="@+id/sleepHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Sleep: "
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/appetiteHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/sleepBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@id/sleepHeader"
+        app:layout_constraintTop_toBottomOf="@id/appetiteHeader">
+    </TextView>
+
+    <TextView
+        android:id="@+id/concentrationHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Concentration: "
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/sleepHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/concentrationBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@id/concentrationHeader"
+        app:layout_constraintTop_toBottomOf="@id/sleepHeader">
+    </TextView>
+
+    <TextView
+        android:id="@+id/worthlessnessHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Worthlessness: "
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/concentrationHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/worthBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@id/worthlessnessHeader"
+        app:layout_constraintTop_toBottomOf="@id/concentrationHeader">
+    </TextView>
+
+    <TextView
+        android:id="@+id/fatigueHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Fatigue: "
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/worthlessnessHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/fatigueBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@id/fatigueHeader"
+        app:layout_constraintTop_toBottomOf="@id/worthlessnessHeader">
+    </TextView>
+
+    <TextView
+        android:id="@+id/movementHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Movement: "
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/fatigueHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/movementBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@id/movementHeader"
+        app:layout_constraintTop_toBottomOf="@id/fatigueHeader">
+    </TextView>
+
+    <TextView
+        android:id="@+id/suicidalIntentionHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Suicidal Intention: "
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="@color/happyorange"
+        app:layout_constraintTop_toBottomOf="@id/movementHeader"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/suicideBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="@id/suicidalIntentionHeader"
+        app:layout_constraintTop_toBottomOf="@id/movementHeader">
+    </TextView>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
