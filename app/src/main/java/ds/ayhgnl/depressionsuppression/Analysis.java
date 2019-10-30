@@ -1,9 +1,15 @@
 package ds.ayhgnl.depressionsuppression;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.widget.TextView;
@@ -15,7 +21,8 @@ public class Analysis extends AppCompatActivity {
     String base = "You are at";
     String good = "You are in a good place of mind. Continue to stay positive and do enjoyable things!";
     String bad = "You are not in a good place of mind. Try to stay positive and do activites you enjoy. You emergency contacts have been informed";
-
+    public static final String CHANNEL_1_ID = "channel";
+    private NotificationManagerCompat notificationManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,10 +94,33 @@ public class Analysis extends AppCompatActivity {
             }
             text();
         }
+        String notifTitle = "Depression Suppression!";
+        String notifDesc = "Come take your weekly survey";
 
-
+        createNotificationChannels();
+        notificationManager = NotificationManagerCompat.from(this);
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.dslogo)
+                .setContentTitle(notifTitle)
+                .setContentText(notifDesc)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        notificationManager.notify(1, notification);
     }
 
+    private void createNotificationChannels() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel1 = new NotificationChannel(
+                    CHANNEL_1_ID,
+                    "Depression Suppresion!",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            channel1.setDescription("Come take your weekly survey");
+            NotificationManager manger = getSystemService(NotificationManager.class);
+            manger.createNotificationChannel(channel1);
+        }
+    }
     private void text() {
         SmsManager smgr = SmsManager.getDefault();
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
