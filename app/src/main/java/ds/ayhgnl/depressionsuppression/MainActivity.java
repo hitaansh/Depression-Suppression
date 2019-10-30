@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences pref; // = getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
     CheckBox option1; CheckBox option2; CheckBox option3; CheckBox option4; CheckBox option5; TextView question; Button next; int questionnum=0;
     int sadness=0; int lossOfInterest = 0; int appetite=0; int sleep = 0; int concentration = 0; int worthlessness = 0; int fatigue=0; int movement = 0; int suicidalIdeation=0;
-    boolean clicked; int score = 0; Object[] options; String[] questions = {"My appetite was poor.","I could not shake off the blues.","I had trouble keeping my mind on what I was doing."
+    boolean clicked, done; int score = 0; Object[] options; String[] questions = {"My appetite was poor.","I could not shake off the blues.","I had trouble keeping my mind on what I was doing."
     ,"I felt depressed."
     ,"My sleep was restless."
     ,"I felt sad."
@@ -56,12 +56,17 @@ public class MainActivity extends AppCompatActivity {
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
         questionnum=1;
         clicked = pref.getBoolean("InitialQuestionsCompleted", false);
+        done = pref.getBoolean("quizDone", false);
         System.out.println(clicked + "clicked");
         next.setEnabled(false);
 //        Intent inte = new Intent(MainActivity.this, Receiver.class);
 //        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, REQUEST_CODE, inte, 0);
 //        AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
 //        am.setRepeating(am.RTC_WAKEUP, System.currentTimeInMillis(), am.INTERVAL_DAY*7, pendingIntent);
+        if(done) {
+            Intent res = new Intent(getApplicationContext(), Analysis.class);
+            startActivity(res);
+        }
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         ||((CheckBox)options[2]).isChecked()||((CheckBox)options[3]).isChecked()
                         ||((CheckBox)options[4]).isChecked()){
                     if(questionnum != 20){
+                        done = false;
                         for(int i=0; i<options.length; i++){
                             CheckBox check = (CheckBox)options[i];
                             if(check.isChecked()){
@@ -121,7 +127,23 @@ public class MainActivity extends AppCompatActivity {
                         questionnum++;
                     }
                     else {
-                        System.out.println("Change Screens");
+                        pref = getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = pref.edit();
+                        done = true;
+                        edit.putBoolean("quizDone", done);
+                        edit.putInt("Score", score);
+                        edit.putInt("LossOfInterest", lossOfInterest);
+                        edit.putInt("Appetite", appetite);
+                        edit.putInt("Sleep", sleep);
+                        edit.putInt("Concentration", concentration);
+                        edit.putInt("Worthlessness", worthlessness);
+                        edit.putInt("Fatigue", fatigue);
+                        edit.putInt("Movement", movement);
+                        edit.putInt("SuicidalIntention", suicidalIdeation);
+                        edit.apply();
+                        Intent res = new Intent(getApplicationContext(), Analysis.class);
+                        startActivity(res);
+                        //System.out.println("Change Screens");
                         //transfer screens
                         //if sadness  or sleep are 8 or greater, it is concerning
                         //for everything else, if it is 5 or greater, it is concerning
@@ -161,8 +183,8 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     protected void onPause() {
-        System.out.println("here");
         super.onPause();
+        pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
         SharedPreferences.Editor pfEditor = pref.edit();
         pfEditor.putBoolean("InitialQuestionsCompleted", clicked);
         pfEditor.apply();
