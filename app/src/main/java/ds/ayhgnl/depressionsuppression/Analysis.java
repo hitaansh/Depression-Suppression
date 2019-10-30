@@ -4,15 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.widget.TextView;
+
+import java.util.Calendar;
 
 public class Analysis extends AppCompatActivity {
     SharedPreferences pref;
@@ -92,8 +97,35 @@ public class Analysis extends AppCompatActivity {
                 condition.setText(bad);
                 condition.setTextColor(-65536); // red color
             }
-            text();
+            //text();
+            Calendar rightNow = Calendar.getInstance();
+            int cHR = rightNow.get(Calendar.HOUR_OF_DAY);
+            //System.out.println(cHR + "");
+            int cM = rightNow.get(Calendar.MINUTE);
+            int cS = rightNow.get(Calendar.SECOND);
+
+            Calendar c = Calendar.getInstance();
+            c.set(Calendar.HOUR_OF_DAY, Calendar.HOUR_OF_DAY);
+            //System.out.print("Hour of day: ");
+            //System.out.println(Calendar.HOUR_OF_DAY + "");
+            //System.out.print("Minute: ");
+            c.set(Calendar.MINUTE, Calendar.MINUTE + 1);
+            //System.out.print(Calendar.MINUTE + "");
+            c.set(Calendar.SECOND, 0);
+            startAlarm(c);
         }
+
+    }
+
+    private void startAlarm(Calendar c) {
+        // System.out.println("here at alarm");
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlertReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
+        alarmManager.setExact(AlarmManager.RTC, c.getTimeInMillis(), pendingIntent);
+    }
+
+    private void notifySurvey() {
         String notifTitle = "Depression Suppression!";
         String notifDesc = "Come take your weekly survey";
 
@@ -109,6 +141,8 @@ public class Analysis extends AppCompatActivity {
         notificationManager.notify(1, notification);
     }
 
+
+
     private void createNotificationChannels() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel1 = new NotificationChannel(
@@ -121,6 +155,7 @@ public class Analysis extends AppCompatActivity {
             manger.createNotificationChannel(channel1);
         }
     }
+
     private void text() {
         SmsManager smgr = SmsManager.getDefault();
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
