@@ -17,11 +17,13 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Analysis extends AppCompatActivity {
     SharedPreferences pref;
     int maxScore = 60, score, tier1 = 16, tier2 = 24, tier3 = 36, tier4 = 42, tier5 = 48, tier6 = 54, tier7 = 60;
+    int interest; int appetite; int sleep; int concentration; int worthlessness; int movement; int fatigue; int suicide;
     TextView scoreBox, appetiteBox, interestBox, sleepBox, concentrationBox, worthlessnessBox, fatigueBox, movementBox, suicideBox, tier, condition, time;
     CountDownTimer timer;
     String base = "You are at";
@@ -50,14 +52,32 @@ public class Analysis extends AppCompatActivity {
         scoreBox.setText(pref.getInt("Score", 0) + "");
         score = pref.getInt("Score", 0);
         interestBox.setText(pref.getInt("LossOfInterest", 0) + "");
+        interest = pref.getInt("LossOfInterest", 0);
         appetiteBox.setText(pref.getInt("Appetite", 0) + "");
+        appetite = pref.getInt("Appetite", 0);
         sleepBox.setText(pref.getInt("Sleep", 0) + "");
+        sleep = pref.getInt("Sleep", 0);
         concentrationBox.setText(pref.getInt("Concentration", 0) + "");
+        concentration = pref.getInt("Concentration", 0);
         worthlessnessBox.setText(pref.getInt("Worthlessness", 0) + "");
+        worthlessness = pref.getInt("Worthlessness", 0);
         fatigueBox.setText(pref.getInt("Fatigue", 0) + "");
+        fatigue = pref.getInt("Fatigue", 0);
         movementBox.setText(pref.getInt("Movement", 0) + "");
+        movement = pref.getInt("Movement", 0);
         suicideBox.setText(pref.getInt("SuicidalIntention", 0) + "");
-
+        suicide = pref.getInt("SuicidalIntention", 0);
+        int [] subscores = {interest, appetite, sleep, concentration, worthlessness, fatigue, movement, suicide};
+        String[] categories = {"interest", "appetite", "sleep", "concentration", "worthlessness", "fatigue", "movement", "suicide"};
+        //if sadness  or sleep are 8 or greater, it is concerning
+        //for everything else, if it is 5 or greater, it is concerning
+        ArrayList<String> concerns  = new ArrayList<String>();
+        for(int i=0; i<subscores.length; i++){
+            if(i==2 && subscores[i]>=8)
+                concerns.add("sleep");
+            else if(subscores[i]>=5)
+                concerns.add(categories[i]);
+        }
         if(score < tier1) {
             String toDisplay = base + " Tier 1";
             tier.setText(toDisplay);
@@ -99,7 +119,7 @@ public class Analysis extends AppCompatActivity {
                 condition.setText(bad);
                 condition.setTextColor(-65536); // red color
             }
-            //text();
+            text(concerns);
 
         }
         timer = new CountDownTimer(10000, 1000) {
@@ -167,13 +187,19 @@ public class Analysis extends AppCompatActivity {
         }
     }
 
-    private void text() {
+    private void text(ArrayList<String> concerns) {
         SmsManager smgr = SmsManager.getDefault();
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
         String emg1 = pref.getString("Contact1", "");
         String emg2 = pref.getString("Contact2", "");
         String emg3 = pref.getString("Contact3", "");
         String Message = pref.getString("Name", "") + " " + "is not in a good mental place. Please talk to them.";
+        String allConcerns = "";
+        for(String i:concerns)
+            allConcerns+=(i + ", ");
+        allConcerns = allConcerns.substring(0, allConcerns.length()-2);
+        System.out.println(allConcerns);
+        Message+=(pref.getString("Name", "") + " is showing concerning signs with " + allConcerns);
         if(!emg1.equals("")) {
             smgr.sendTextMessage(emg1, null, Message, null, null);
         }
