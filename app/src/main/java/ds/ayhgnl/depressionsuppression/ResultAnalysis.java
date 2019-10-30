@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class ResultAnalysis extends AppCompatActivity {
     SharedPreferences pref;
-    TextView scoreBox, appetiteBox, interestBox, sleepBox, concentrationBox, worthlessnessBox, fatigueBox, movementBox, suicideBox;
+    TextView scoreBox, appetiteBox, interestBox, sleepBox, concentrationBox, worthlessnessBox, fatigueBox, movementBox, suicideBox, condition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class ResultAnalysis extends AppCompatActivity {
         fatigueBox = findViewById(R.id.fatigueBox);
         movementBox = findViewById(R.id.movementBox);
         suicideBox = findViewById(R.id.suicideBox);
+        condition = findViewById(R.id.condition);
 
         scoreBox.setText(pref.getInt("Score", 0));
         interestBox.setText(pref.getInt("LossOfInterest", 0));

@@ -243,6 +243,34 @@
         app:layout_constraintTop_toBottomOf="@id/movementHeader">
     </TextView>
 
+    <TextView
+        android:id="@+id/tier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You are at Tier 1"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="22sp"
+        android:textStyle = "bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You are in good condition"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tier">
+    </TextView>
+
 
 
 
