@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             SharedPreferences.Editor pfEditor = pref.edit();
-            pfEditor.putBoolean("InitialQuestionsCompleted", clicked);
+            pfEditor.putBoolean("InitialQuestionsCompleted", true);
             pfEditor.apply();
 
 
