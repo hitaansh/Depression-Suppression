@@ -173,7 +173,7 @@ public class Analysis extends AppCompatActivity {
         String emg1 = pref.getString("Contact1", "");
         String emg2 = pref.getString("Contact2", "");
         String emg3 = pref.getString("Contact3", "");
-        String Message = pref.getString("Name", "") + " " + "is not a good mental place. Please talk to them.";
+        String Message = pref.getString("Name", "") + " " + "is not in a good mental place. Please talk to them.";
         if(!emg1.equals("")) {
             smgr.sendTextMessage(emg1, null, Message, null, null);
         }
