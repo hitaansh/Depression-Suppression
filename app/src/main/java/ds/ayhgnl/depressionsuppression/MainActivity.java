@@ -56,6 +56,20 @@ public class MainActivity extends AppCompatActivity {
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
         questionnum=1;
         clicked = pref.getBoolean("InitialQuestionsCompleted", false);
+        if(clicked) {
+
+
+            SharedPreferences.Editor pfEditor = pref.edit();
+            pfEditor.putBoolean("InitialQuestionsCompleted", clicked);
+            pfEditor.apply();
+
+
+        }
+        else {
+            Intent intent = new Intent(getApplicationContext(), InitialQuestions.class);
+            startActivity(intent);
+        }
+
         done = pref.getBoolean("quizDone", false);
         System.out.println(clicked + "clicked");
         next.setEnabled(false);
@@ -153,19 +167,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        if(clicked) {
 
-
-            SharedPreferences.Editor pfEditor = pref.edit();
-            pfEditor.putBoolean("InitialQuestionsCompleted", clicked);
-            pfEditor.apply();
-
-
-        }
-        else {
-            Intent intent = new Intent(getApplicationContext(), InitialQuestions.class);
-            startActivity(intent);
-        }
 
 
 

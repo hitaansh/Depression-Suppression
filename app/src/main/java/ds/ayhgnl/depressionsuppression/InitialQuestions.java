@@ -18,7 +18,7 @@ public class InitialQuestions extends AppCompatActivity {
     EditText contact1, contact2, contact3, name, age , gender, activity1, activity2, activity3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("on create iq");
+        //System.out.println("on create iq");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_questions);
         pref = getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
