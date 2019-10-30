@@ -3,7 +3,7 @@ package ds.ayhgnl.depressionsuppression;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-
+import android.os.CountDownTimer;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -22,10 +22,11 @@ import java.util.Calendar;
 public class Analysis extends AppCompatActivity {
     SharedPreferences pref;
     int maxScore = 60, score, tier1 = 16, tier2 = 24, tier3 = 36, tier4 = 42, tier5 = 48, tier6 = 54, tier7 = 60;
-    TextView scoreBox, appetiteBox, interestBox, sleepBox, concentrationBox, worthlessnessBox, fatigueBox, movementBox, suicideBox, tier, condition;
+    TextView scoreBox, appetiteBox, interestBox, sleepBox, concentrationBox, worthlessnessBox, fatigueBox, movementBox, suicideBox, tier, condition, time;
+    CountDownTimer timer;
     String base = "You are at";
     String good = "You are in a good place of mind. Continue to stay positive and do enjoyable things!";
-    String bad = "You are not in a good place of mind. Try to stay positive and do activites you enjoy. You emergency contacts have been informed";
+    String bad = "You are not in a good place of mind. Try to stay positive and do activites you enjoy. Your emergency contacts have been informed";
     public static final String CHANNEL_1_ID = "channel";
     private NotificationManagerCompat notificationManager;
     @Override
@@ -43,6 +44,7 @@ public class Analysis extends AppCompatActivity {
         suicideBox = findViewById(R.id.suicideBox);
         tier = findViewById(R.id.tier);
         condition = findViewById(R.id.condition);
+        time = findViewById(R.id.timeLeft);
 
         pref = this.getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
         scoreBox.setText(pref.getInt("Score", 0) + "");
@@ -98,22 +100,31 @@ public class Analysis extends AppCompatActivity {
                 condition.setTextColor(-65536); // red color
             }
             //text();
-            Calendar rightNow = Calendar.getInstance();
-            int cHR = rightNow.get(Calendar.HOUR_OF_DAY);
-            //System.out.println(cHR + "");
-            int cM = rightNow.get(Calendar.MINUTE);
-            int cS = rightNow.get(Calendar.SECOND);
 
-            Calendar c = Calendar.getInstance();
-            c.set(Calendar.HOUR_OF_DAY, Calendar.HOUR_OF_DAY);
-            //System.out.print("Hour of day: ");
-            //System.out.println(Calendar.HOUR_OF_DAY + "");
-            //System.out.print("Minute: ");
-            c.set(Calendar.MINUTE, Calendar.MINUTE + 1);
-            //System.out.print(Calendar.MINUTE + "");
-            c.set(Calendar.SECOND, 0);
-            startAlarm(c);
         }
+        timer = new CountDownTimer(10000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                long hours = (millisUntilFinished)/(3600000);
+                long minutes = (millisUntilFinished)/(60000) - (hours * 60);
+                long seconds = (millisUntilFinished)/(1000) - (minutes * 60) - (hours * 3600);
+                String hoursLeft = ((int)hours) + "" + ":";
+                String minutesLeft = ((int)minutes) + "" + ":";
+                String secondsLeft = ((int)seconds) + "";
+                time.setText("Time until next survey: " + hoursLeft + minutesLeft + secondsLeft);
+            }
+            @Override
+            public void onFinish() {
+                notifySurvey();
+                pref = getSharedPreferences("com.answer.storage", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putBoolean("quizDone", false);
+                edit.apply();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        };
+        timer.start();
 
     }
 
