@@ -130,7 +130,7 @@ public class Analysis extends AppCompatActivity {
                 condition.setText(bad);
                 condition.setTextColor(-65536); // red color
             }
-            // text(concerns);
+            text(concerns);
         }
 
         if(oldScore != -1) {
@@ -140,7 +140,7 @@ public class Analysis extends AppCompatActivity {
                 String drop = "Your score has increased by more than 30% since your last survey. You are entering a dangerous state of mind. Try to stay positive and do activites you enjoy. Your emergency contacts have been informed";
                 condition.setText(drop);
                 condition.setTextColor(-65536); // red color
-                //text(concerns);
+                text(concerns);
             }
         }
 
@@ -151,7 +151,7 @@ public class Analysis extends AppCompatActivity {
 
     private void startTimer() {
         //endTime = System.currentTimeMillis() + timeLeftMillis;
-        timer = new CountDownTimer(10000, 1000) {
+        timer = new CountDownTimer(45000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timerRunning = true;
@@ -224,8 +224,8 @@ public class Analysis extends AppCompatActivity {
         for(String i:concerns)
             allConcerns+=(i + ", ");
         allConcerns = allConcerns.substring(0, allConcerns.length()-2);
-        System.out.println(allConcerns);
-        Message+=(pref.getString("Name", "") + " is showing concerning signs with " + allConcerns);
+        // System.out.println(allConcerns);
+        // Message+=(pref.getString("Name", "") + " is showing concerning signs with " + allConcerns);
         if(!emg1.equals("")) {
             smgr.sendTextMessage(emg1, null, Message, null, null);
         }
