@@ -284,6 +284,72 @@
         app:layout_constraintTop_toBottomOf="@id/condition">
     </TextView>
 
+    <TextView
+        android:id="@+id/subScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="2dp"
+        android:text = "Subscores Explained: If your saddness or sleep scores are greater than 6, it is concerning. Otherwise, if any of your other subscores are greater than 5 it is concerning."
+        app:layout_constraintTop_toBottomOf="@id/timeLeft"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/activites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="2dp"
+        android:text = "These are activites you can do to have fun!"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/subScores"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/activity1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text = "_"
+        android:textSize="15dp"
+        android:textColor="@color/purple"
+        app:layout_constraintTop_toBottomOf="@id/activites"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/activity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text = "_"
+        android:textSize="15dp"
+        android:textColor="@color/purple"
+        app:layout_constraintTop_toBottomOf="@id/activity1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/activity3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text = "_"
+        android:textSize="15dp"
+        android:textColor="@color/purple"
+        app:layout_constraintTop_toBottomOf="@id/activity2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+    </TextView>
+
+
 
 
 
