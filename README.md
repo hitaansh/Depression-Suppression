@@ -1,4 +1,4 @@
-# Depression_Suppression
+# Depression-Suppression
 
 This is a Depression Screening app that was made for the Congressional App Challenge with two collaborators, Winston Yin and Nathan Luong.
 Features include
